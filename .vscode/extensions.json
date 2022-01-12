@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "yzhang.markdown-all-in-one",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "unwantedRecommendations": []
+}
