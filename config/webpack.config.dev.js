@@ -13,6 +13,6 @@ module.exports = merge(webpackConfig, {
         secure: false,
         logLevel: 'debug'
       }
-    }
+    },
   }
 })
