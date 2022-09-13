@@ -8,10 +8,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+
+import Calender from './Calender';
+
 import { DialogProps } from 'Components/types/DialogType';
 
 export default function FormDialog(props:DialogProps) {
-  const { buttonName,id,textMessage ,handleOnClick} = props;
+  const { buttonName,id,textMessage ,handleOnClick,day} = props;
 
   const [open, setOpen] = React.useState(false);
 
@@ -23,6 +26,7 @@ export default function FormDialog(props:DialogProps) {
     setOpen(false);
   };
 
+  if (day == "on"){
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -31,10 +35,10 @@ export default function FormDialog(props:DialogProps) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{buttonName}します</DialogTitle>
         <DialogContent>
+        <Calender/>
           <DialogContentText>{textMessage}</DialogContentText>
           {id.map(([mapid,maplabel])=>(
           <TextField
-            autoFocus
             margin="dense"
             id= {mapid}
             label={maplabel}
@@ -51,35 +55,33 @@ export default function FormDialog(props:DialogProps) {
       </Dialog>
     </div>
   );
-}
-/*
-const handleOnClick = () => {
-        setOpen(false);
-      };
-
-<Dialog testMessage='++++++' handleOnClick = {handleOnClick}/>
-*/
-
-
-
-/*<TextField
-            autoFocus
+  }else{
+  return (
+    <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        {buttonName}
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>{buttonName}します</DialogTitle>
+        <DialogContent>
+          <DialogContentText>{textMessage}</DialogContentText>
+          {id.map(([mapid,maplabel])=>(
+          <TextField
             margin="dense"
             id= {mapid}
             label={maplabel}
             fullWidth
             variant="standard"
+            key = {mapid} 
           />
-*/
-
-/*
-<LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-              label="Date desktop"
-              inputFormat="MM/dd/yyyy"
-              value={value}
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params}}
-              />
-              </LocalizationProvider>
-*/
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>キャンセル</Button>
+          <Button onClick={handleOnClick}>{buttonName}</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+          }
+}

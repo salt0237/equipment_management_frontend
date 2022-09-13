@@ -7,7 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import TabFurniture from './Components/pages/TabFurniture'
 import TabLicense from './Components/pages/TabLicense'
 import TabConsumable from './Components/pages/TabConsumable'
-import Calender from './Components/ui/Calender'
+import TabDeleteHistory from './Components/pages/TabDeleteHistory'
 
 export default function LabTabs(): JSX.Element {
   const [value, setValue] = React.useState('1');
@@ -24,7 +24,7 @@ export default function LabTabs(): JSX.Element {
             <Tab label="備品管理" value="1" />
             <Tab label="ソフトウェアライセンス" value="2" />
             <Tab label="消耗品" value="3" />
-            <Tab label="Item four" value="4" />
+            <Tab label="削除一覧" value="4" />
           </TabList>
         </Box>
 
@@ -41,7 +41,7 @@ export default function LabTabs(): JSX.Element {
         </TabPanel>
 
         <TabPanel value="4">
-          <Calender/>
+          <TabDeleteHistory/>
         </TabPanel>
         
       </TabContext>

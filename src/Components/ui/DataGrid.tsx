@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DataGrid} from "@mui/x-data-grid";
 import { DataGridProps, Rows } from "../types/DataGridType";
+import { cellClickHandler } from '../model/CellClickHandler';
 
 export default function DataGridDom(props: DataGridProps<Rows>) {
 
@@ -13,8 +14,11 @@ export default function DataGridDom(props: DataGridProps<Rows>) {
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
+          checkboxSelection
           disableSelectionOnClick
+          onCellClick={(id) => cellClickHandler(rows,id)}
         />
+      
       </div>
     );
   }

@@ -1,30 +1,48 @@
 import React from 'react'
-import  Dialog  from '../../ui/Dialog'
+import Button from '../../ui/Button'
+
 import {rest} from '../../../network/axios'
 import { ConsumableProps } from 'Components/types/ConsumableTypes'
+import { DataGridProps, Rows } from "Components/types/DataGridType";
 
-export default function ConsumableDelete(){
+export default function ConsumableDelete(props: DataGridProps<Rows>){
 
-  const url = "/consumable";
-  function getSystem(s:string){
-    const textbox = document.getElementById(s)as HTMLInputElement;
-    const data = textbox.value;
-    return data;
-  }
+ 
 
-    const handleOnClick = async () => {
+    const upOnClick = async () =>{
+
+      const { rows, columns} = props;
+
+      const flagcheck:number[] =[];
+      var num =0;
+    
+      for(var i = 0;rows.length > i;i++){
+        if(rows[i].flag){
+            flagcheck[num] = rows[i].id;
+            num ++;
+        }
+      }
+
+      for(var j =0;flagcheck.length>j;j++){
         const url = "/consumable/";
-        const id = getSystem('id');
-        console.log(id);
-        const {data} = await rest.delete<ConsumableProps[]>(url+id)
+        const id = flagcheck[j];
+        console.log("id"+id+"を削除します");
+        const text = {
+          data:
+          {
+            flag:false
+          },
+        }
+        const {data} = await rest.delete<ConsumableProps[]>(url+id);
         console.log(data);
-        location.reload();
-    };
+      }
+      location.reload();
+    }
     
     const dialog_id:string[][] =[['id','id']];
   return(
     <div >
-        <Dialog buttonName='削除' id={dialog_id} textMessage='削除するデータのidを入力してください' handleOnClick = {handleOnClick} />
+        <Button ButtonText='チェックしたものを削除' handleOnClick = {upOnClick}/>
     </div>
 
   )

@@ -2,10 +2,10 @@ import React from 'react'
 import Button from '../../ui/Button'
 
 import {rest} from '../../../network/axios'
-import { FurnitureProps } from 'Components/types/FurnitureTypes'
+import { LicenseProps } from 'Components/types/LicenseTypes'
 import { DataGridProps, Rows } from "Components/types/DataGridType";
 
-export default function FurnitureDelete(props: DataGridProps<Rows>){
+export default function LicenseFlagDown(props: DataGridProps<Rows>){
 
  
 
@@ -24,25 +24,26 @@ export default function FurnitureDelete(props: DataGridProps<Rows>){
       }
 
       for(var j =0;flagcheck.length>j;j++){
-        const url = "/furniture/";
+        const url = "/license/";
         const id = flagcheck[j];
-        console.log("id"+id+"を削除します");
+        console.log("id"+id+"を復元します");
         const text = {
           data:
           {
-            flag:false
+            flag:true
           },
         }
-        const {data} = await rest.delete<FurnitureProps[]>(url+id);
+        const {data} = await rest.put<LicenseProps[]>(url+id,text);
+        console.log(rows[j].name);
         console.log(data);
       }
-      location.reload();
+      location.reload();//処理を終えたらリロード
     }
     
     const dialog_id:string[][] =[['id','id']];
   return(
     <div >
-        <Button ButtonText='チェックしたものを削除' handleOnClick = {upOnClick}/>
+        <Button ButtonText='チェックしたものを復元' handleOnClick = {upOnClick}/>
     </div>
 
   )

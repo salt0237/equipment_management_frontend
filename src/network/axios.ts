@@ -17,6 +17,9 @@ const rest = (() => {
         },
         delete: <T = any, R= AxiosResponse<T>>(url: string): Promise<R> => {
             return options.delete(url+"id");
+        },
+        put: <T = any, R= AxiosResponse<T>>(url:string,data: Data):Promise<R> =>{
+            return options.put(url,data);
         }
     }
 })();

@@ -1,6 +1,5 @@
 import React from "react";
 import Tab from "./Tab";
-import Dialog from './Components/ui/Dialog'
 
 export const App: React.FC = () => {
     return (

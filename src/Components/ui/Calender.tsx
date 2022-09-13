@@ -5,17 +5,18 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 export default function BasicDatePicker() {
-  const [value, setValue] = React.useState<Date | null>(null);
+  const [value, setValue] = React.useState<Date | null>(new Date());
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
-        label="Basic example"
+        inputFormat="yyyy/MM/dd"
+        mask="____/__/__"
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => <TextField {...params} id="day"/>}//id追加
       />
     </LocalizationProvider>
   );

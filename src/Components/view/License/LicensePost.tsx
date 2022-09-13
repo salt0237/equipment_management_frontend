@@ -21,17 +21,18 @@ export default function LicenseDialog(){
           number:getSystem('number'),
           license_key:getSystem('license_key'),
           memo:getSystem('memo'),
+          flag:true
           },
       }
-        const {data} = await rest.post<LicenseProps[]>(url,text);
+        const {data} = await rest.post<LicenseProps>(url,text);
         console.log('trypost');
         location.reload();
       };
     
-    const dialog_id:string[][] =[['license_id','ライセンスid'],['name','ソフトウェア名称'],['number','ライセンス付与番号'],['license_key','ライセンスキー'],['memo','備考']];
+    const dialog_id:string[][] =[['license_id','ライセンスid'],['name','ソフトウェア名称'],['number','ライセンス付与対象'],['license_key','ライセンスキー'],['memo','備考']];
   return(
     <div >
-        <Dialog buttonName='追加' id={dialog_id}  textMessage='ライセンスid、ソフトフェア名称、ライセンス付与番号、ライセンスキー、備考を記入してください。' handleOnClick = {handleOnClick} />
+        <Dialog buttonName='追加' id={dialog_id}  textMessage='ライセンスid、ソフトフェア名称、ライセンス付与対象、ライセンスキー、備考を記入してください。' handleOnClick = {handleOnClick} day="off"/>
     </div>
   )
 }

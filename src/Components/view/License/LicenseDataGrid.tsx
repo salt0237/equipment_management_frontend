@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import DataGrid from '../../ui/DataGrid'
+import LicenseFlagDown from './LicenseFlagDown'
 import {columns} from '../../dataset/license_dataset'
 import {getLicense} from '../../../network/License/GetLicense'
 import { LicenseProps } from 'Components/types/LicenseTypes';
@@ -11,14 +12,21 @@ export const LicenseDataGrid: React.FC = () =>  {
         useEffect(() => {
             getLicense().then((data) => {
                 console.log('# data',data);
+                var x = data.length;  
+                for(var i = 0;x > i;i++){
+                  if(!data[i].flag){
+                    data.splice(i--,1);
+                    x --;
+                  } //対象の配列を除去
+                }
                 setLicense(data);
-                console.log('表示');
             });
         },[]);
 
       return(
         <div >
             <DataGrid rows={rows} columns={columns}/>
+            <LicenseFlagDown rows={rows} columns={columns}/>
         </div>
 
       );
