@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import DataGrid from '../../ui/DataGrid'
+import DeleteHistoryDataGrid from '../../ui/DeleteHistoryDataGrid'
 import ConsumableFlagUp from './ConsumableFlagUp'
 import ConsumableDelete from './ConsumableDelete'
 import {del_columns} from '../../dataset/consumable_dataset'
@@ -33,7 +33,7 @@ export const ConsumableDeleteHistory: React.FC = () =>  {
        
       return(
         <div>
-            <DataGrid rows={rows} columns={del_columns}/>
+            <DeleteHistoryDataGrid rows={rows} columns={del_columns}/>
             <ConsumableFlagUp rows={rows} columns={del_columns}/>
             <ConsumableDelete rows={rows} columns={del_columns}/>
         </div>

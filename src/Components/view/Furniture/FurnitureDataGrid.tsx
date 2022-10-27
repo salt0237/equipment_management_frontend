@@ -1,10 +1,10 @@
 import React, {useState,useEffect} from 'react'
 import DataGrid from '../../ui/DataGrid'
 import FurnitureFlagDown from './FurnitureFlagDown'
+import FurnitureUpdate from './FurnitureUpdate'
 import {columns} from '../../dataset/furniture_dataset'
 import {getFurniture} from '../../../network/Furniture/GetFurniture'
 import { FurnitureProps } from 'Components/types/FurnitureTypes';
-import { GridColDef } from '@mui/x-data-grid'
 
 
 export const FurnitureDataGrid: React.FC = () =>  {
@@ -32,7 +32,7 @@ export const FurnitureDataGrid: React.FC = () =>  {
        
       return(
         <div>
-            <DataGrid rows={rows} columns={columns}/>
+            <DataGrid rows={rows} columns={columns} />
             <FurnitureFlagDown rows={rows} columns={columns} />
         </div>
 

@@ -9,7 +9,9 @@ export default function DataGridDom(props: DataGridProps<Rows>) {
 
     const { rows, columns} = props;
 
-    
+    const alerttext =() =>{
+        alert("ここでの編集は有効ではありません");
+    }
     
     return (
       <div style={{ height: 420, width: '100%' }}>
@@ -21,14 +23,8 @@ export default function DataGridDom(props: DataGridProps<Rows>) {
           checkboxSelection
           disableSelectionOnClick
           onCellClick={(id) => cellClickHandler(rows,id)}
-          onCellEditCommit={id=>changeCellData(id)}
+          onCellEditCommit={alerttext}
         />
       </div>
     );
   }
-//onCellClick={(id) => cellClickHandler(rows,id)}
-//onSelectionModelChange={itm=> console.log(itm)}
-/*
-onSelectionModelChange={itm=> cellClickHandler(rows,itm)}
-          onCellEditCommit={id=>changeCellData(id)}
-*/

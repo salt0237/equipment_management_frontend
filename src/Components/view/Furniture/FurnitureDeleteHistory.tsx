@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import DataGrid from '../../ui/DataGrid'
+import DeleteHistoryDataGrid from '../../ui/DeleteHistoryDataGrid'
 import FurnitureFlagUp from './FurnitureFlagUp'
 import FurnitureDelete from './FurnitureDelete'
 import {del_columns} from '../../dataset/furniture_dataset'
@@ -33,7 +33,7 @@ export const FurnitureDeleteHistory: React.FC = () =>  {
       return(
         <div>
           
-          <DataGrid rows={rows} columns={del_columns}/>
+          <DeleteHistoryDataGrid rows={rows} columns={del_columns}/>
           <FurnitureFlagUp rows={rows} columns={del_columns}/>
           <FurnitureDelete rows={rows} columns={del_columns}/>
           

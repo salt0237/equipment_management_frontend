@@ -5,7 +5,7 @@ import {rest} from '../../../network/axios'
 import { FurnitureProps } from 'Components/types/FurnitureTypes'
 import { DataGridProps, Rows } from "Components/types/DataGridType";
 
-export default function FurnitureDelete(props: DataGridProps<Rows>){
+export default function FurnitureUpdate(props: DataGridProps<Rows>){
 
  
 
@@ -26,25 +26,34 @@ export default function FurnitureDelete(props: DataGridProps<Rows>){
       for(var j =0;flagcheck.length>j;j++){
         const url = "/furniture/";
         const id = flagcheck[j];
-        console.log("id"+id+"を削除します");
+        console.log("id"+id+"をupdateします");
         const text = {
           data:
           {
-            flag:false
+          
+          flag:true
           },
         }
-        const {data} = await rest.delete<FurnitureProps[]>(url+id);
+        const {data} = await rest.put<FurnitureProps[]>(url+id,text);
+        console.log(rows[j].name);
         console.log(data);
+        console.log(rows);
       }
-  
-      location.reload();
+      //location.reload();//処理を終えたらリロード
     }
     
     const dialog_id:string[][] =[['id','id']];
   return(
     <div >
-        <Button ButtonText='チェックしたものを削除' handleOnClick = {upOnClick}/>
+        <Button ButtonText='変更を反映' handleOnClick = {upOnClick}/>
     </div>
 
   )
 }
+/*name: rows[id].name,
+          number: rows[id].name,
+          person: rows[id].name,
+          place: rows[id].name,
+          day: rows[id].name,
+          memo: rows[id].name,
+ */

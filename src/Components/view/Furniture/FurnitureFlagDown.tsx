@@ -37,6 +37,7 @@ export default function FurnitureFlagUp(props: DataGridProps<Rows>){
         console.log(rows[j].name);
         console.log(data);
       }
+
       location.reload();//処理を終えたらリロード
     }
     

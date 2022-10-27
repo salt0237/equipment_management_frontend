@@ -49,6 +49,7 @@
     "@mui/lab": "^5.0.0-alpha.83",
     "@mui/material": "^5.7.0",
     "@mui/x-data-grid": "^5.11.0",
+    "@mui/x-data-grid-generator": "^5.17.2",
     "axios": "^0.27.2",
     "bootstrap": "^3.4.1",
     "cors": "^2.8.5",

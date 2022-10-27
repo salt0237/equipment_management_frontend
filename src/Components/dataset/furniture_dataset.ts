@@ -43,7 +43,6 @@ export const columns: GridColDef[] = [
 
   export const del_columns: GridColDef[] = [
     { field: 'id', headerName: 'id', width: 50 },
-
     {
       field: 'name',
       headerName: '物品名',

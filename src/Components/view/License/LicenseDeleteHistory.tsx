@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import DataGrid from '../../ui/DataGrid'
+import DeleteHistoryDataGrid from '../../ui/DeleteHistoryDataGrid'
 import LicenseFlagUp from './LicenseFlagUp'
 import LicenseDelete from './LicenseDelete'
 import {del_columns} from '../../dataset/license_dataset'
@@ -33,7 +33,7 @@ export const LicenseDeleteHistory: React.FC = () =>  {
        
       return(
         <div>
-            <DataGrid rows={rows} columns={del_columns}/>
+            <DeleteHistoryDataGrid rows={rows} columns={del_columns}/>
             <LicenseFlagUp rows={rows} columns={del_columns}/>
             <LicenseDelete rows={rows} columns={del_columns}/>
         </div>
